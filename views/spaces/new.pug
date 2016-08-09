@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  
+  form(method='post' action='/spaces')
+    input(type='text' name='name')
+    input(type='text' name='description')
+    input(type='number' name='price')
+    input(type='submit' value='List space')

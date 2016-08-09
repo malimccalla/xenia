@@ -15,7 +15,6 @@ router.post('/', function(req, res, next) {
     email: req.body.email,
     password: req.body.password
   });
-  console.log(user);
   user.saveAll();
   res.redirect('/');
 });

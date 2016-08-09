@@ -7,19 +7,21 @@ var expect = chai.expect;
 
 Browser.localhost('localhost', 3000);
 
-describe('Listing spaces',function() {
-
+describe('Listing Spaces', function() {
   before(function(done) {
     browser.visit('/spaces/new', done);
-    browser
-      .fill('name', 'The Cute Cottage')
-      .fill('description', 'Romantic getaway for two')
-      .fill('price', 230)
-      .pressButton('List space',done);
   });
 
-  it('user can add a space', function(done) {
-    expect(browser.html('spaces')).to.include('The Cute Cottage');
+  it('filling out the form to add a space', function(done) {
+    browser
+      .fill('name', 'THIS IS MORE VISIBLE')
+      .fill('description', 'Romantic getaway for two')
+      .fill('price', 230)
+      .pressButton('List space', done);
+  });
+
+  it('adds space to the list of spaces', function() {
+    expect(browser.html('.spaces')).to.include('Cute Cottage');
   });
 
 });
