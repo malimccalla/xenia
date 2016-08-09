@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  //- h1= 'please sign up'
+  form(method='post' action='/users')
+    input(type='email' name='email')
+    input(type='password', name='password')
+    input(type='password', name='password-confirmation')
+    input(type='submit' value='sign-up')
