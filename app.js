@@ -8,6 +8,11 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var thinky = require('thinky')({db: 'xeniaTest'});
+var r =thinky.r;
+var type = thinky.type;
+
+
 var app = express();
 
 // view engine setup
