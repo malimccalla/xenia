@@ -7,7 +7,8 @@ var type = thinky.type;
 var Space = thinky.createModel('Space', {
   id: type.string(),
   name: type.string().required(),
-  description: type.string().required(),
+  lDescription: type.string().required(),
+  sDescription: type.string().required(),
   price: type.number().required()
 });
 

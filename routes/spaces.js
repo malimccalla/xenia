@@ -19,11 +19,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/view', function(req, res, next) {
-  var allSpaces;
-  Space.filter({id: req.query.id}).run().then(function(spaces) {
-    allSpaces =  spaces;
+  var spaceToView;
+  Space.filter({id: req.query.id}).run().then(function(space) {
+    spaceToView =  space[0];
   }).then(function() {
-    res.render('spaces/index', { title: 'Spaces', spaces: allSpaces });
+    res.render('spaces/view', { title: 'Spaces', space: spaceToView });
   });
 });
 
@@ -36,7 +36,8 @@ router.get('/new', function(req, res, next) {
 router.post('/', function(req, res, next) {
   space = new Space({
     name: req.body.name,
-    description: req.body.description,
+    lDescription: req.body.ldescription,
+    sDescription: req.body.sdescription,
     price: req.body.price
   });
   space.save();
