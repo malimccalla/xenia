@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1= space.name
+  div(class='view-space')
+      div(id='space')
+        div(id='s-description')= space.sDescription
+        div(id='l-description')= space.lDescription
+
+        div(id='space-price')= space.price
