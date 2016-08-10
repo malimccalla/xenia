@@ -14,7 +14,7 @@ describe('Listing Spaces', function() {
 
   it('filling out the form to add a space', function(done) {
     browser
-      .fill('name', 'THIS IS MORE VISIBLE')
+      .fill('name', 'Cute Cottage')
       .fill('description', 'Romantic getaway for two')
       .fill('price', 230)
       .pressButton('List space', done);

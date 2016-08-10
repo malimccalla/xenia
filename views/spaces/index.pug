@@ -3,10 +3,8 @@ extends ../layout
 block content
   
   
-  div(class='space')
-  ul
+  div(class='spaces')
     each val in spaces
-      div(class='number')
         div(id='space-name')= val.name
         div(id='space-description')= val.description
         div(id='space-price')= val.price
