@@ -10,11 +10,12 @@ var type = thinky.type;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var allSpaces;
   Space.run().then(function(spaces) {
-    var allSpaces = spaces;
+    allSpaces =  spaces;
+  }).then(function() {
+    res.render('spaces/index', { title: 'Spaces', spaces: allSpaces });
   });
-  console.log(allSpaces)
-  res.render('spaces/index', { title: 'Spaces', spaces: allSpaces });
 });
 
 
@@ -29,6 +30,7 @@ router.post('/', function(req, res, next) {
     description: req.body.description,
     price: req.body.price
   });
+  space.save();
   res.redirect('/spaces');
 });
 

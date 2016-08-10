@@ -5,6 +5,8 @@ block content
   
   div(class='space')
   ul
-    each val in [1,2,3,4,5]
+    each val in spaces
       div(class='number')
-      li= val
+        div(id='space-name')= val.name
+        div(id='space-description')= val.description
+        div(id='space-price')= val.price

@@ -4,11 +4,11 @@ var r = thinky.r;
 var type = thinky.type;
 
 
-var User = thinky.createModel('Space', {
+var Space = thinky.createModel('Space', {
   id: type.string(),
   name: type.string().required(),
   description: type.string().required(),
   price: type.number().required()
 });
 
-module.exports = User;
+module.exports = Space;
