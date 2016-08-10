@@ -5,6 +5,8 @@ block content
   
   div(class='spaces')
     each val in spaces
+      div(id='space')
         div(id='space-name')= val.name
         div(id='space-description')= val.description
         div(id='space-price')= val.price
+        a(href='/spaces/view?id=' + val.id)= 'click here'

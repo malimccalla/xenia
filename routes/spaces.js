@@ -18,6 +18,15 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/view', function(req, res, next) {
+  var allSpaces;
+  Space.filter({id: req.query.id}).run().then(function(spaces) {
+    allSpaces =  spaces;
+  }).then(function() {
+    res.render('spaces/index', { title: 'Spaces', spaces: allSpaces });
+  });
+});
+
 
 router.get('/new', function(req, res, next) {
   res.render('spaces/new', { title: 'List a new Space' });
