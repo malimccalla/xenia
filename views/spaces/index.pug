@@ -1,12 +1,12 @@
 extends ../layout
 
 block content
-
-
+  
+  
   div(class='spaces')
     each val in spaces
-      div(id='space-listing')
-        div(id='space-name')= val.name
-        div(id='s-description')= val.sDescription
-        div(id='space-price')= val.price
-        a(href='/spaces/view?id=' + val.id)= 'click here'
+      a(href='/spaces/view?id=' + val.id)
+        div(id='space-listing')
+          div(id='space-name')= val.name
+          div(id='space-description')= val.sDescription
+          div(id='space-price')= '£' + val.price +'.00 per night'

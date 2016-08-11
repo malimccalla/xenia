@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(class='nice-picture')  
+    video(autoplay loop class="fillWidth")
+            source(src="/MP4/To-The-Left.mp4" type="video/mp4")
+            source(src="/WEBM/To-The-Left.webm" type="video/webm")
+    div(id='title-block')  
+      div(id='colour-block')
+        a(href='/spaces')
+          h1= 'XENIΛ'
+    
