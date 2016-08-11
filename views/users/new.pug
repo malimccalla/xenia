@@ -1,9 +1,13 @@
 extends ../layout
 
 block content
-  //- h1= 'please sign up'
-  form(method='post' action='/users')
-    input(type='email' name='email')
-    input(type='password', name='password')
-    input(type='password', name='password-confirmation')
-    input(type='submit' value='sign-up')
+  div(class='spaces')
+    h2='User Registration'
+    form(method='post' action='/users')
+      label='Email:'
+        input(type='email' name='email')        
+      label='Password:'
+        input(type='password', name='password')
+      label='Password Confirmation'      
+        input(type='password', name='password-confirmation')
+      input(type='submit' value='sign-up')
