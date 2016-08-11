@@ -1,6 +1,25 @@
-extends layout
+html
+  head
+    title= title
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css')
+    link(rel='stylesheet', href='/stylesheets/normalize.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/home-nav.css')
+  body
+    div(class='nav-container')
+      div(class='navbar')
+        if currentUser
+          user(id='nav-button')= currentUser.email
+        else
+          user(id='nav-button')= 'xenia'
 
-block content
+        buttons
+          a(href='/spaces' id='nav-button')= 'spaces'
+          if currentUser
+            a(href='/sessions/logout' id='nav-button')= 'logout'
+          else
+            a(href='/sessions/new' id='nav-button')= 'login'
+          a(href='/users/new' id='nav-button')= 'register'
   div(class='nice-picture')  
     video(autoplay loop class="fillWidth")
             source(src="/MP4/To-The-Left.mp4" type="video/mp4")
@@ -8,5 +27,5 @@ block content
     div(id='title-block')  
       div(id='colour-block')
         a(href='/spaces')
-          h1= 'XENIΛ'
+          h1= 'X  E  N  I  Λ'
     
