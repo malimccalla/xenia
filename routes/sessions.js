@@ -15,11 +15,11 @@ router.get('/new', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   User.authenticate(req).then(function(result) {
-    console.log(result);
     if (result === true) {
       res.redirect('/spaces');
     }
     else {
+      console.log(req.session);
       res.redirect('/sessions/new');
     }
   });

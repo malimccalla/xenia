@@ -15,10 +15,12 @@ var User = thinky.createModel('User', {
 
 User.authenticate = function(req) {
   return User.filter({email: req.body.email}).run().then(function(user) {
-    if (user && bcrypt.compareSync(req.body.password, user[0].password)) {
-      req.session.user = user[0];
-      req.session.save();
-      return true;
+    if (user[0]) {
+      if (bcrypt.compareSync(req.body.password, user[0].password)) {
+        req.session.user = user[0];
+        req.session.save();
+        return true;
+      }
     } else {return false;}
   });
 };
