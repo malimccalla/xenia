@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require(__dirname + '/../models/users.js');
-
-
+var bcrypt = require('bcryptjs');
 
 /* GET users listing. */
 router.get('/new', function(req, res, next) {
@@ -13,7 +12,7 @@ router.post('/', function(req, res, next) {
   var user = new User({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password
+    password: bcrypt.hashSync(req.body.password)
   });
   user.saveAll();
   res.redirect('/');

@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  div(class='spaces')
+    h2='User Sign-in'
+    form(method='post' action='/sessions')
+      label='Email:'
+        input(type='email' name='email')
+      label='Password:'
+        input(type='password', name='password')
+      input(type='submit' value='Sign in')

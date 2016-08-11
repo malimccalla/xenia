@@ -17,7 +17,8 @@ describe('Listing Spaces', function() {
       before(function(done) {
         browser
           .fill('name', 'House')
-          .fill('description', 'Romantic getaway for two')
+          .fill('ldescription', 'Romantic getaway for two')
+          .fill('sdescription', '4 bed')
           .fill('price', 230)
           .pressButton('List space', done);
       });

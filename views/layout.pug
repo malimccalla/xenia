@@ -7,11 +7,11 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
-    
+
     div(class='nav-container')
       div(class='navbar')
         user(id='nav-button')= 'Jack'
         buttons
           a(href='/spaces' id='nav-button')= 'spaces'
-          a(href='/session/new' id='nav-button')= 'login'
+          a(href='/sessions/new' id='nav-button')= 'login'
           a(href='/users/new' id='nav-button')= 'register'
