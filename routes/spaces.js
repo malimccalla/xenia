@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   var allSpaces;
   Space.run().then(function(spaces) {
     allSpaces =  spaces;
-  }).then(function() {
+    }).then(function() {
     res.render('spaces/index', { title: 'Spaces', spaces: allSpaces, currentUser: req.session.user  });
   });
 });
@@ -38,8 +38,10 @@ router.post('/', function(req, res, next) {
     name: req.body.name,
     lDescription: req.body.ldescription,
     sDescription: req.body.sdescription,
-    price: req.body.price
+    price: req.body.price,
+    userId: req.session.user.id
   });
+  console.log(req.session.userI);
   space.save();
   res.redirect('/spaces');
 });

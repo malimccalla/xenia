@@ -2,6 +2,7 @@ var thinky = require(__dirname + '/../util/thinky.js');
 var bcrypt = require('bcryptjs');
 var session = require('express-session');
 
+
 var r = thinky.r;
 var type = thinky.type;
 
@@ -10,8 +11,12 @@ var User = thinky.createModel('User', {
   id: type.string(),
   name: type.string(),
   email: type.string().email(),
-  password: type.string()
+  password: type.string(),
+  spaceId: type.string()
 });
+
+
+
 
 User.authenticate = function(req) {
   return User.filter({email: req.body.email}).run().then(function(user) {
@@ -25,4 +30,8 @@ User.authenticate = function(req) {
   });
 };
 
+
+
 module.exports = User;
+var Space = require(__dirname + '/../models/spaces.js');
+User.hasMany(Space, 'spaces', 'id', 'userId');

@@ -18,7 +18,7 @@ html
         buttons
           a(href='/spaces' id='nav-button')= 'spaces'
           if currentUser
-            a(href='/sessions/new' id='nav-button')= 'logout'
+            a(href='/sessions/logout' id='nav-button')= 'logout'
           else
             a(href='/sessions/new' id='nav-button')= 'login'
           a(href='/users/new' id='nav-button')= 'register'

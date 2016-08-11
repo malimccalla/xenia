@@ -28,4 +28,12 @@ router.post('/', function(req, res, next) {
 });
 
 
+router.get('/logout', function(req, res, next) {
+  console.log('first');
+  console.log(req.session);
+  req.session.user = null;
+  console.log(req.session);
+  res.redirect('/');
+});
+
 module.exports = router;

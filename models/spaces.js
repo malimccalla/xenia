@@ -9,7 +9,10 @@ var Space = thinky.createModel('Space', {
   name: type.string().required(),
   lDescription: type.string().required(),
   sDescription: type.string().required(),
-  price: type.number().required()
+  price: type.number().required(),
+  userId: type.string()
 });
 
 module.exports = Space;
+var User = require(__dirname + '/../models/users.js');
+Space.belongsTo(User, 'user', 'userId', 'id');

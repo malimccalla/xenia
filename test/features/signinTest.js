@@ -8,7 +8,7 @@ var expect = chai.expect;
 Browser.localhost('localhost', 3000);
 
 
-describe('user registration', function() {
+describe('Sign in', function() {
   before(function(done) {
     browser.visit('/sessions/new', done);
   });
@@ -20,8 +20,27 @@ describe('user registration', function() {
       .pressButton('Sign in',done);
   });
 
-  it('displays', function() {
+  it('displays logged in user', function() {
     expect(browser.html('body')).to.include('test@email.com');
   });
 
 });
+
+describe('Sign out', function() {
+
+  it('does not display a logged in user when user has logged out', function(done) {
+
+    signIn(function() {browser.clickLink('logout', done);
+    expect(browser.html('body')).not.to.include('test@email.com');
+  });
+});
+
+});
+
+signIn = function(done) {
+  browser.visit('/sessions/new', function() { browser
+    .fill('email', 'test@email.com')
+    .fill('password', '12345')
+    .pressButton('Sign in',done);
+  });
+};

@@ -1,16 +1,19 @@
 extends ../layout
 
 block content
-  
+
   div(class='spaces')
     h2='List a new Space'
-    form(method='post' action='/spaces')
-      label= 'Space name'
-        input(type='text' name='name')
-      label= 'Short Description'
-        input(type='text' name='sdescription')
-      label= 'Long Description'
-        input(type='text' name='ldescription')
-      label= 'Price per night'
-        input(type='number' name='price')
-      input(type='submit' value='List space')
+    if currentUser
+      form(method='post' action='/spaces')
+        label= 'Space name'
+          input(type='text' name='name')
+        label= 'Short Description'
+          input(type='text' name='sdescription')
+        label= 'Long Description'
+          input(type='text' name='ldescription')
+        label= 'Price per night'
+          input(type='number' name='price')
+        input(type='submit' value='List space')
+    else
+      p= 'You must be signed in to list a space'
