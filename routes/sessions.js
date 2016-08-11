@@ -10,13 +10,15 @@ var r = thinky.r;
 var type = thinky.type;
 
 router.get('/new', function(req, res, next) {
-  res.render('sessions/new', { title: 'Sign in' });
+  res.render('sessions/new', { title: 'Sign in', currentUser: req.session.user });
 });
 
 router.post('/', function(req, res, next) {
   User.authenticate(req).then(function(result) {
     if (result === true) {
+      console.log(req.session);
       res.redirect('/spaces');
+
     }
     else {
       console.log(req.session);

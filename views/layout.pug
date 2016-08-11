@@ -10,8 +10,15 @@ html
 
     div(class='nav-container')
       div(class='navbar')
-        user(id='nav-button')= 'Jack'
+        if currentUser
+          user(id='nav-button')= currentUser.email
+        else
+          user(id='nav-button')= 'xenia'
+
         buttons
           a(href='/spaces' id='nav-button')= 'spaces'
-          a(href='/sessions/new' id='nav-button')= 'login'
+          if currentUser
+            a(href='/sessions/new' id='nav-button')= 'logout'
+          else
+            a(href='/sessions/new' id='nav-button')= 'login'
           a(href='/users/new' id='nav-button')= 'register'

@@ -22,7 +22,7 @@ describe('user registration', function() {
   });
 
   it('displays', function() {
-    expect(browser.html('p')).to.include('Welcome');
+    expect(browser.html('body')).to.include('test@email.com');
   });
 
 });
