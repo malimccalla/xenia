@@ -6,11 +6,19 @@ block content
     div(id='s-description')= space.sDescription
     div(id='l-description')= space.lDescription
     div(id='space-price')= space.price
-    form
+    form(method='post' action='/requests')
+      input(type='hidden' value=space.id name='spaceid')
       label='from'
-        input(type='text' id='datepicker1')
+        input(type='text' id='datepicker1' name='datefrom')
       label='to'    
-        input(type='text' id='datepicker2')
+        input(type='text' id='datepicker2' name='dateto')
+      input(type='submit' value='Request')   
+    div(id='unavailable')
+      h2= 'unavailable dates'
+      each val in requests
+        div(id='red-date')
+          p= 'from ' + val.startDate
+          p= 'to ' + val.endDate 
 
   head
     meta(charset='utf-8')
@@ -21,4 +29,6 @@ block content
   script.
     $( "#datepicker1" ).datepicker();
     $( "#datepicker2" ).datepicker();
+    
+
    

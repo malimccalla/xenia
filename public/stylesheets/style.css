@@ -5,7 +5,8 @@ body {
     background-image: url('/Snapshots/To-The-Left.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-      font-weight: 100;
+    font-weight: 100;
+    overflow: hidden;
 }
 h1 {
     font-size: 10em;
@@ -35,7 +36,7 @@ h2{
     padding: 5px;
     font-size: 2em;
     font-family: roboto;
-    font-weight: 100;    
+    font-weight: 100;
 }
 #space-name{
   font-size: 1.5em
@@ -197,4 +198,9 @@ form input[type="submit"]:hover{
 }
 form input[type="submit"]:focus{
     outline-color: none;
+}
+div#red-date {
+    padding: 5px;
+    background-color: rgba(187, 37, 37, 0.2);
+    margin: 30px;
 }
