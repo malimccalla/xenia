@@ -10,15 +10,30 @@ router.get('/new', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+userExists(req, res);
+
+function userExists(req, res) {
+  User.filter({email: req.body.email}).run().then(function(userExists) {
+    if (userExists[0] === undefined) {
+      createUser();
+    } else {res.redirect('/users/new');}
+    });
+  }
+
+function createUser() {
   var user = new User({
     name: req.body.name,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password)
   });
+
   user.saveAll();
   req.session.user = user;
   req.session.save();
   res.redirect('/');
+}
+
+
 });
 
 module.exports = router;
