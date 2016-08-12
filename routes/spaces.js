@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Space = require(__dirname + '/../models/spaces.js');
+var Request = require(__dirname + '/../models/requests.js');
 var thinky = require(__dirname + '/../util/thinky.js');
 var session = require('express-session');
 
@@ -22,9 +23,12 @@ router.get('/', function(req, res, next) {
 router.get('/view', function(req, res, next) {
   var spaceToView;
   Space.filter({id: req.query.id}).run().then(function(space) {
-    spaceToView =  space[0];
+     spaceToView =  space[0];
   }).then(function() {
-    res.render('spaces/view', { title: 'Spaces', space: spaceToView, currentUser: req.session.user  });
+    Request.filter({spaceId: spaceToView.id}).run().then( function (requests){
+      console.log('requests are' + requests[0].startDate)
+    res.render('spaces/view', { title: 'Spaces', space: spaceToView, currentUser: req.session.user, requests: requests  });
+  });
   });
 });
 

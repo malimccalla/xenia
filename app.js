@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var spaces = require('./routes/spaces');
 var sessions = require('./routes/sessions');
+var requests = require('./routes/requests');
 
 
 
@@ -32,6 +33,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/spaces', spaces);
 app.use('/sessions', sessions);
+app.use('/requests', requests);
 
 
 // catch 404 and forward to error handler
