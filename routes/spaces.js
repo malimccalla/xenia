@@ -11,7 +11,8 @@ var type = thinky.type;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   var allSpaces;
-  Space.run().then(function(spaces) {
+  Space.getJoin({user: true}).run().then(function(spaces) {
+    console.log(spaces[0].user.email);
     allSpaces =  spaces;
     }).then(function() {
     res.render('spaces/index', { title: 'Spaces', spaces: allSpaces, currentUser: req.session.user  });
@@ -41,7 +42,6 @@ router.post('/', function(req, res, next) {
     price: req.body.price,
     userId: req.session.user.id
   });
-  console.log(req.session.userI);
   space.save();
   res.redirect('/spaces');
 });

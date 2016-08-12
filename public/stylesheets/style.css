@@ -34,6 +34,8 @@ h2{
     margin-bottom: 13px;
     padding: 5px;
     font-size: 2em;
+    font-family: roboto;
+    font-weight: 100;    
 }
 #space-name{
   font-size: 1.5em
@@ -171,8 +173,28 @@ form{
     font-size: 2em;
     margin-top: 20px;
     margin-left: 150px;
-    width: 400px;
+    width: 350px;
 }
 input[type="submit"] {
     margin-top: 20px;
+}
+form label input{
+    background-color: rgba(0,0,0,0.5);
+    border: solid;
+    color: rgba(255,255,255,0.5);
+}
+form label input:focus{
+  outline-color: white;
+}
+form input[type="submit"]{
+    border: solid;
+    border-color: transparent;
+    color: rgba(255,255,255,0.5);
+    background-color: transparent;
+}
+form input[type="submit"]:hover{
+    color: rgba(255,255,255,0.7);
+}
+form input[type="submit"]:focus{
+    outline-color: none;
 }
