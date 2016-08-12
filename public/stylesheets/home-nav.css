@@ -1,0 +1,18 @@
+.navbar {
+    position: relative;
+    top: 0;
+    background: rgba(0,0,0,0.05);
+    color: rgba(255,255,255,0.1);
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5em;
+    font-family: roboto;
+    transition: background 1s, color 1s;
+    text-decoration: none;
+    z-index: 10;
+}
+.navbar:hover{
+    background: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.5);
+    transition: background 1s,color 1s;
+}
