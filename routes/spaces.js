@@ -13,7 +13,7 @@ var type = thinky.type;
 router.get('/', function(req, res, next) {
   var allSpaces;
   Space.getJoin({user: true}).run().then(function(spaces) {
-    console.log(spaces[0].user.email);
+    console.log(spaces[0])
     allSpaces =  spaces;
     }).then(function() {
     res.render('spaces/index', { title: 'Spaces', spaces: allSpaces, currentUser: req.session.user  });
@@ -26,7 +26,7 @@ router.get('/view', function(req, res, next) {
      spaceToView =  space[0];
   }).then(function() {
     Request.filter({spaceId: spaceToView.id}).run().then( function (requests){
-      console.log('requests are' + requests[0].startDate)
+      if (requests.length === 0) requests = null;
     res.render('spaces/view', { title: 'Spaces', space: spaceToView, currentUser: req.session.user, requests: requests  });
   });
   });

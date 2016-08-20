@@ -14,11 +14,12 @@ block content
         input(type='text' id='datepicker2' name='dateto')
       input(type='submit' value='Request')   
     div(id='unavailable')
-      h2= 'unavailable dates'
-      each val in requests
-        div(id='red-date')
-          p= 'from ' + val.startDate
-          p= 'to ' + val.endDate 
+      if requests
+        h2= 'unavailable dates'
+        each val in requests
+          div(id='red-date')
+            p= 'from ' + val.startDate
+            p= 'to ' + val.endDate 
 
   head
     meta(charset='utf-8')
