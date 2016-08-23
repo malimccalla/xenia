@@ -25,6 +25,7 @@ router.get('/view', function(req, res, next) {
      spaceToView =  space[0];
   }).then(function() {
     Request.filter({spaceId: spaceToView.id}).run().then( function (requests){
+      if (requests.length === 0) requests = null;
     res.render('spaces/view', { title: 'Spaces', space: spaceToView, currentUser: req.session.user, requests: requests  });
   });
   });
